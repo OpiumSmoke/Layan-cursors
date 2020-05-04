@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 function create {
 	cd "$SRC"
 	mkdir -p x1 x1_25 x1_5 x2
@@ -21,9 +22,18 @@ function create {
 	if [ ! -d "$OUTPUT" ]; then
 		mkdir "$OUTPUT"
 	fi
-
+    
+    
+    CONFDIR="config"
+    
+    if [[ "$1" == *"lh"* ]]; then
+        CONFDIR="config-lh"
+    else
+        CONFDIR="config"
+    fi
+    
 	echo -ne "Generating cursor theme...\\r"
-	for CUR in config/*.cursor; do
+    for CUR in "$CONFDIR"/*.cursor; do
 		BASENAME="$CUR"
 		BASENAME="${BASENAME##*/}"
 		BASENAME="${BASENAME%.*}"
@@ -61,15 +71,20 @@ function create {
 # generate pixmaps from svg source
 SRC=$PWD/src
 
-THEME="Layan Cursors"
-BUILD="$SRC/../dist"
-create svg
+# THEME="Layan Cursors"
+# BUILD="$SRC/../dist"
+# create svg
 
-THEME="Layan-border Cursors"
-BUILD="$SRC/../dist-border"
-create svg-border
+THEME="Layan Cursors LH"
+BUILD="$SRC/../dist-lh"
+create svg-lh
 
-THEME="Layan-white Cursors"
-BUILD="$SRC/../dist-white"
-create svg-white
-
+# THEME="Layan-border Cursors"
+# BUILD="$SRC/../dist-border"
+# create svg-border
+# 
+# THEME="Layan-white Cursors"
+# CONFDIR = "config"
+# BUILD="$SRC/../dist-white"
+# create svg-white
+# 

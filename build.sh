@@ -71,20 +71,18 @@ function create {
 # generate pixmaps from svg source
 SRC=$PWD/src
 
-# THEME="Layan Cursors"
-# BUILD="$SRC/../dist"
-# create svg
+THEME="Layan Cursors"
+BUILD="$SRC/../dist"
+create svg
 
 THEME="Layan Cursors LH"
 BUILD="$SRC/../dist-lh"
 create svg-lh
 
-# THEME="Layan-border Cursors"
-# BUILD="$SRC/../dist-border"
-# create svg-border
-# 
-# THEME="Layan-white Cursors"
-# CONFDIR = "config"
-# BUILD="$SRC/../dist-white"
-# create svg-white
-# 
+THEME="Layan-border Cursors"
+BUILD="$SRC/../dist-border"
+create svg-border
+
+THEME="Layan-white Cursors"
+BUILD="$SRC/../dist-white"
+create svg-white
